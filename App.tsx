@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -32,10 +32,13 @@ const Layout: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  // Use Vite's BASE_URL which matches the vite.config base setting
+  const basename = import.meta.env.BASE_URL;
+  
   return (
-    <HashRouter>
+    <BrowserRouter basename={basename}>
       <Layout />
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
